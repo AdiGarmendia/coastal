@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from hrapp.models import Vehicle
+from coastalapp.models import Vehicle
 from ..connection import Connection
 
 
@@ -19,7 +19,7 @@ def get_vehicles():
             v.purchase_date,
             v.decommission_date,
             v.manufacturer
-        from hrapp_vehicle v
+        from coastalapp_vehicle v
         """)
 
         return db_cursor.fetchall()
