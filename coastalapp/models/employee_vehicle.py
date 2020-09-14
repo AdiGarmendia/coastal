@@ -11,7 +11,7 @@ class EmployeeVehicle(models.Model):
                                  null=True,  # Makes column nullable in DB
                                  blank=True,  # Allows blank value on objects
                                  on_delete=models.CASCADE)
-    vehicle = models.ForeignKey(vehicle,
+    vehicle = models.ForeignKey(Vehicle,
                                  related_name="EmployeesVehicle",
                                  null=True,  # Makes column nullable in DB
                                  blank=True,  # Allows blank value on objects

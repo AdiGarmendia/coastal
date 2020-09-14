@@ -1,10 +1,10 @@
 {
-    "sqltools.connections": [
-        {
-            "database": "db.sqlite3",
-            "driver": "SQLite",
-            "name": "coastal",
-            "previewLimit": 50
-        }
-    ]
+	"sqltools.connections": [
+		{
+			"database": "db.sqlite3",
+			"driver": "SQLite",
+			"name": "coastal",
+			"previewLimit": 50
+		}
+	]
 }
