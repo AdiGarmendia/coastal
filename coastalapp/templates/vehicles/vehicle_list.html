@@ -1,0 +1,27 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+<h1>Vehicles</h1>
+{% if user.is_authenticated %}
+<section style="display: flex">
+	<form action="{% url 'coastalapp:vehicle_form' %}" method="GET">
+		{% csrf_token %}
+		<button class="button">Add Vehicle</button>
+	</form>
+</section>
+{% endif %}
+
+<ol class="list">
+	{% for vehicle in vehicles %}
+	<li class="card">
+		<a
+			class="details-link"
+			class="employee-name"
+			href="{% url 'coastalapp:vehicle' vehicle.id %}"
+		>
+			{{ vehicle.make }}
+		</a>
+	</li>
+	{% endfor %}
+</ol>
+{% endblock content %}

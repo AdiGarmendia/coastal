@@ -1,0 +1,16 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+
+<section class="vehicle-details">
+	<h1>{{ vehicle.make }}</h1>
+	<h2>Manufacturer: {{ vehicle.manufacturer }}</h2>
+	<h2>Pruchased on: {{ vehicle.purchase_date }}</h2>
+</section>
+{% if user.is_authenticated %}
+<form action="{% url 'coastalapp:vehicle' vehicle.id %}" method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="actual_method" value="DELETE" />
+	<button class="button">Delete</button>
+</form>
+{% endif %} {% endblock %}
