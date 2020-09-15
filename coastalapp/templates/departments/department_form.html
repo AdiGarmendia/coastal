@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %} {% block content %}
+<h1>Department to be added</h1>
+
+<form action="{% url 'coastalapp:department_list' %}" method="post">
+	{% csrf_token %}
+	<fieldset>
+		<label for="title">Department Name: </label>
+		<input id="department_name" type="text" name="department_name" />
+	</fieldset>
+
+	<input type="submit" value="Add It" />
+</form>
+{% endblock content %}

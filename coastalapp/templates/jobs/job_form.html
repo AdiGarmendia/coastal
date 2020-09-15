@@ -1,0 +1,33 @@
+{% extends 'shared/base.html' %} 
+{% block content %}
+
+{% if job.id is not None %}
+    <form action="{% url 'coastalapp:job' job.id%}" method="POST">
+{% else %}
+    <form action="{% url 'coastalapp:job_list' %}" method="POST">
+{% endif %}
+    {% csrf_token %}
+    <fieldset>
+        <label for="title">Title: </lable>
+        <input id="title" type="text" name="title" value="{{ job.title }}">
+    </fieldset>
+    <fieldset>
+        <label for="start_date">Start Date: </label>
+        <input id="start_date" type="date" name="start_date" value={{ job.start_date }}>
+    </fieldset>
+    <fieldset>
+        <label for="end_date">End Date: </label>
+        <input id="end_date" type="date" name="end_date" value={{ job.end_date }}>
+    </fieldset>
+   
+
+{% if job.id is not None %}
+    <input type="hidden" name="actual_method" value="PUT">
+    <input type="submit" value="Update" />
+{% else %}
+    <input type="submit" values="Add It" />
+{% endif %}
+</form>
+
+
+{% endblock content %}

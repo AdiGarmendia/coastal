@@ -1,0 +1,22 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+
+<section class="employee-details">
+	<h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
+	<h2>{{ employee.department_name }}</h2>
+	<p>Start Date: {{ employee.start_date }}</p>
+	<p>Supervisor: {{ employee.is_supervisor }}</p>
+</section>
+
+{% if user.is_authenticated %}
+<section id="employee-actions" style="display: flex">
+	<form
+		action="{% url 'coastalapp:employee_edit_form' employee.id %}"
+		method="GET"
+	>
+		{% csrf_token %}
+		<button class="button">Edit</button>
+	</form>
+</section>
+{% endif %} {% endblock %}

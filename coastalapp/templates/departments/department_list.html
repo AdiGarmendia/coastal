@@ -1,0 +1,31 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css'%}" />
+{% endblock css %} {% block content %}
+
+<h1>Departments</h1>
+{% if user.is_authenticated %}
+<section style="display: flex">
+	<form action="{% url 'coastalapp:department_form' %}" method="GET">
+		{% csrf_token %}
+		<button class="button">Add Department</button>
+	</form>
+</section>
+{% endif %}
+
+<ol class="list">
+	{% for department in all_departments %}
+	<li class="card">
+		<a
+			class="details-link department-name"
+			href="{% url 'coastalapp:department' department.id %}"
+		>
+			<h3 class="deptartment-name">{{ department.department_name }}</h3>
+		</a>
+		<h5 class="department-size">
+			Employees: {{ department.employees|length }}
+		</h5>
+	</li>
+	{% endfor %}
+</ol>
+
+{% endblock content %}

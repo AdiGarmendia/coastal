@@ -1,0 +1,23 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+
+<section class="job-details">
+	<h1>{{ job.title }}</h1>
+	<p>Start Date: {{ job.start_date }}</p>
+	<p>End Date: {{ job.end_date }}</p>
+</section>
+
+{% if user.is_authenticated %}
+<section id="job-actions" style="display: flex">
+	<form action="{% url 'coastalapp:job_edit_form' job.id %}" method="GET">
+		{% csrf_token %}
+		<button class="button">Edit</button>
+	</form>
+	<form action="{% url 'coastalapp:job' job.id %}" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="actual_method" value="DELETE" />
+		<button class="button">Delete</button>
+	</form>
+</section>
+{% endif %} {% endblock %}

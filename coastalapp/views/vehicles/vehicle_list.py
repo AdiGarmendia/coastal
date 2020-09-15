@@ -18,7 +18,7 @@ def vehicle_list(request):
                 v.id,
                 v.make,
                 v.purchase_date,
-                v.decommission_date,
+                v.retired_date,
                 v.manufacturer
             from coastalapp_vehicle v
             """)
@@ -31,7 +31,7 @@ def vehicle_list(request):
                 vehicle.id = row['id']
                 vehicle.make = row['make']
                 vehicle.purchase_date = row['purchase_date']
-                vehicle.decommission_date = row['decommission_date']
+                vehicle.retired_date = row['retired_date']
                 vehicle.manufacturer = row['manufacturer']
 
                 all_vehicles.append(vehicle)
@@ -52,7 +52,7 @@ def vehicle_list(request):
             db_cursor.execute("""
                 INSERT INTO coastalapp_vehicle
                 (
-                    manufacturer, make, purchase_date, decommission_date
+                    manufacturer, make, purchase_date, retired_date
                     )
                 VALUES (?, ?, ?, ?)
                 """,

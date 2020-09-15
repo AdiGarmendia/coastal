@@ -76,7 +76,7 @@ def department_list(request):
                 (
                     department_name
                     )
-                VALUES (?, ?)
+                VALUES (?)
                 """,
                               (form_data['department_name']))
 
