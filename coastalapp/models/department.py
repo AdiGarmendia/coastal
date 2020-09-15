@@ -1,5 +1,5 @@
 from django.db import models
-# from django.urls import reverse
+from django.urls import reverse
 
 
 class Department(models.Model):
@@ -12,7 +12,7 @@ class Department(models.Model):
         verbose_name_plural = ("Departments")
 
     def __str__(self):
-        return f"{self.department_name} {self.department_budget}"
+        return f"{self.department_name}"
 
-    # def get_absolute_url(self):
-    #     return reverse("Department_detail", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("Department_detail", kwargs={"pk": self.pk})

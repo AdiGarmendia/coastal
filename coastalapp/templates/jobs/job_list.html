@@ -1,0 +1,37 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+
+<h1></h1>
+
+{% if user.is_authenticated %}
+<section style="display: flex">
+	<form action="{% url 'coastalapp:job_form' %}" method="GET">
+		{% csrf_token %}
+		<button class="button">Add New job</button>
+	</form>
+</section>
+{% endif %}
+
+<ol class="list">
+	{% for job in jobs %}
+	<li class="card">
+		<a
+			class="details-link"
+			class="employee-name"
+			href="{% url 'coastalapp:job' job.id %}"
+		>
+			{{ job.title }}
+		</a>
+	</li>
+	{% endfor %}
+</ol>
+
+<section style="display: flex">
+	<form action="{% url 'coastalapp:job_past' %}" method="GET">
+		{% csrf_token %}
+		<button class="button">See Past Jobs</button>
+	</form>
+</section>
+
+{% endblock content %}

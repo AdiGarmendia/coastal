@@ -15,7 +15,7 @@ def get_vehicle(vehicle_id):
                 v.id,
                 v.make,
                 v.purchase_date,
-                v.decommission_date,
+                v.retired_date,
                 v.manufacturer
             from coastalapp_vehicle v
         WHERE v.id = ?

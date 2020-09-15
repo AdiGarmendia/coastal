@@ -18,7 +18,7 @@ urlpatterns = [
     path('departments/<int:department_id>',
          department_details, name='department'),
     path('departments/', department_list, name='department_list'),
-    path('jobs', job_list, name='job_list'),
+    path('jobs/', job_list, name='job_list'),
     path('jobs/past', job_past, name='job_past'),
     path('jobs/<int:job_id>/',
          job_details, name='job'),

@@ -1,0 +1,16 @@
+{% extends 'shared/base.html' %} {% block content %}
+
+<h1>Previous Jobs</h1>
+
+<ol>
+	{% for job in jobs %}
+	<li>
+		<h3>{{ job.title }}</h3>
+
+		<p>Start Date: {{job.start_date}}</p>
+		<p>End Date: {{job.end_date}}</p>
+	</li>
+	{% endfor %}
+</ol>
+
+{% endblock content %}

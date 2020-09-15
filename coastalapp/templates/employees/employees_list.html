@@ -1,0 +1,31 @@
+{% extends 'shared/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %} {% block content %}
+<h1>Employees</h1>
+{% if user.is_authenticated %}
+<section style="display: flex">
+	<form action="{% url 'coastalapp:employee_form' %}" method="GET">
+		{% csrf_token %}
+		<button class="button">Add Employee</button>
+	</form>
+</section>
+{% endif %}
+
+<ol class="employee-list">
+	<ol class="list">
+		{% for employee in employees %}
+		<li class="card">
+			<a
+				class="details-link"
+				href="{% url 'coastalapp:employee' employee.id %}"
+			>
+				<h3 class="employee-name">
+					{{ employee.first_name }} {{ employee.last_name }}
+				</h3></a
+			>
+			<h5 class="employee-department">{{ employee.department_name }}</h5>
+		</li>
+		{% endfor %}
+	</ol>
+	{% endblock content %}
+</ol>

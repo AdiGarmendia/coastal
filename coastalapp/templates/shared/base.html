@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Coastal Insulation Project Board</title>
+
+		<link rel="stylesheet" href="{% static 'styles/base.css' %}" />
+
+		{% block css %} {% endblock %}
+	</head>
+
+	<body>
+		<nav id="site-nav">
+			<ol class="nav-list">
+				<li class="nav-list__route">
+					<a href="{% url 'coastalapp:employee_list' %}">Employees</a>
+				</li>
+				<li class="nav-list__route">
+					<a href="{% url 'coastalapp:department_list' %}">Departments</a>
+				</li>
+				<li class="nav-list__route">
+					<a href="{% url 'coastalapp:vehicle_list' %}">Vehicles</a>
+				</li>
+				<li class="nav-list__route">
+					<a href="{% url 'coastalapp:job_list' %}">Jobs</a>
+				</li>
+				{% if user.is_authenticated %}
+				<li class="nav-list__route logout">
+					<a href="{% url 'coastalapp:logout' %}">Logout</a>
+				</li>
+				{% else %}
+				<li class="nav-list__route login">
+					<a href="/accounts/login">Login</a>
+				</li>
+				{% endif %}
+			</ol>
+		</nav>
+
+		<main class="main-content">{% block content %} {% endblock %}</main>
+
+		{% block scripts %} {% endblock scripts %}
+	</body>
+</html>
