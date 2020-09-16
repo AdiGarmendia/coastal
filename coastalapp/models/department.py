@@ -5,7 +5,6 @@ from django.urls import reverse
 class Department(models.Model):
 
     department_name = models.CharField(max_length=100)
-    department_budget = models.FloatField()
 
     class Meta:
         verbose_name = ("Department")

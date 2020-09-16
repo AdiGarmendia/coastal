@@ -22,7 +22,9 @@
 			<h3 class="deptartment-name">{{ department.department_name }}</h3>
 		</a>
 		<h5 class="department-size">
-			Employees: {{ department.employees|length }}
+			Employees: {% for emp in department.employee_set.all %}
+			<h3>{{emp.first_name}}</h3>
+			{% endfor %}
 		</h5>
 	</li>
 	{% endfor %}

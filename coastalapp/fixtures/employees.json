@@ -1,0 +1,68 @@
+[
+	{
+		"model": "coastalapp.employee",
+		"pk": 1,
+		"fields": {
+			"first_name": "Ron",
+			"last_name": "Howard",
+			"start_date": "2010-01-05",
+			"is_supervisor": false,
+			"department": 1
+		}
+	},
+	{
+		"model": "coastalapp.employee",
+		"pk": 2,
+		"fields": {
+			"first_name": "Dwight",
+			"last_name": "Schrutte",
+			"start_date": "2011-01-05",
+			"is_supervisor": false,
+			"department": 2
+		}
+	},
+	{
+		"model": "coastalapp.employee",
+		"pk": 3,
+		"fields": {
+			"first_name": "Madi",
+			"last_name": "Peper",
+			"start_date": "2019-01-05",
+			"is_supervisor": false,
+			"department": 3
+		}
+	},
+	{
+		"model": "coastalapp.employee",
+		"pk": 4,
+		"fields": {
+			"first_name": "Franz",
+			"last_name": "Ferdinand",
+			"start_date": "1910-01-05",
+			"is_supervisor": false,
+			"department": 1
+		}
+	},
+	{
+		"model": "coastalapp.employee",
+		"pk": 5,
+		"fields": {
+			"first_name": "King",
+			"last_name": "Reptar",
+			"start_date": "2000-01-05",
+			"is_supervisor": false,
+			"department": 2
+		}
+	},
+	{
+		"model": "coastalapp.employee",
+		"pk": 6,
+		"fields": {
+			"first_name": "Robbie",
+			"last_name": "Robertson",
+			"start_date": "1974-01-05",
+			"is_supervisor": false,
+			"department": 1
+		}
+	}
+]
