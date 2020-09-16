@@ -1,0 +1,16 @@
+[
+	{
+		"model": "coastalapp.department",
+		"pk": 2,
+		"fields": {
+			"department_name": "LOTR"
+		}
+	},
+	{
+		"model": "coastalapp.department",
+		"pk": 3,
+		"fields": {
+			"department_name": "Dune"
+		}
+	}
+]
