@@ -29,30 +29,32 @@ from ..connection import Connection
 
 
 def employee_details(request, employee_id):
+    employee = Employee.objects.get(pk=employee_id)
     if request.method == "GET":
-        employee = Employee.objects.get(pk=employee_id)
         template = "employees/employee_details.html"
 
         return render(request, template, {"employee": employee})
 
     elif request.method == 'POST':
         form_data = request.POST
-
+        print(form_data["actual_method"])
         if (
             "actual_method" in form_data and form_data["actual_method"] == "PUT"
         ):
-            with sqlite3.connect(Connection.db_path) as conn:
-                db_cursor = conn.cursor()
+            form_data = request.POST
+            print("suncess")
+            employee.first_name = form_data['first_name']
+            employee.last_name = form_data['last_name']
+            employee.is_supervisor = form_data['is_supervisor']
+            employee.department_id = form_data['department_id']
+            employee.save()
 
-                db_cursor.execute("""
-                UPDATE coastalapp_employee
-                SET first_name = ?,
-                    last_name = ?,
-                    start_date = ?,
-                    is_supervisor = ?,
-                    department_id = ?
-                WHERE id = ?
-                """, (form_data['first_name'], form_data['last_name'], form_data['start_date'],
-                      form_data['is_supervisor'], form_data["department_id"], employee_id))
+        elif (
+            "actual_method" in form_data and form_data["actual_method"] == "DELETE"
+        ):
+            employee.delete()
+            return redirect(reverse('coastalapp:employee_list'))
 
-            return redirect(reverse('coastalapp:employee', args=[employee_id]))
+            
+
+        return redirect(reverse('coastalapp:employee', args=[employee_id]))

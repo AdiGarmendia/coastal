@@ -18,5 +18,10 @@
 		{% csrf_token %}
 		<button class="button">Edit</button>
 	</form>
+	<form action="{% url 'coastalapp:employee' employee.id %}" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="actual_method" value="DELETE" />
+		<button class="button">Delete</button>
+	</form>
 </section>
 {% endif %} {% endblock %}
