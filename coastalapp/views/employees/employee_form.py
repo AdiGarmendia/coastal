@@ -6,13 +6,13 @@ from django.contrib.auth.decorators import login_required
 from coastalapp.models import Department
 from coastalapp.models import Employee
 from ..connection import Connection
-from ..employees.employee_details import get_employee
-from ..departments.department_details import get
+# from ..employees.employee_details import get_employee
+from ..departments.department_list import department_list
 
 
 def employee_form(request):
     if request.method == 'GET':
-        departments = get_departments()
+        departments = Department.objects.all()
         template = 'employees/employee_form.html'
         context = {
             'all_departments': departments
@@ -23,8 +23,8 @@ def employee_form(request):
 def employee_edit_form(request, employee_id):
 
     if request.method == 'GET':
-        employee = get_employee(employee_id)
-        departments = get_departments()
+        employee = Employee.objects.get(pk=employee_id)
+        departments = Department.objects.all()
 
         template = 'employees/employee_form.html'
         context = {

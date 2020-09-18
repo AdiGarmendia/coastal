@@ -4,7 +4,7 @@
 
 <section class="employee-details">
 	<h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
-	<h2>{{ employee.department_name }}</h2>
+	<h2>{{ employee.department.department_name }}</h2>
 	<p>Start Date: {{ employee.start_date }}</p>
 	<p>Supervisor: {{ employee.is_supervisor }}</p>
 </section>
