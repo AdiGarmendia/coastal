@@ -10,7 +10,7 @@ class Employee(models.Model):
     start_date = models.DateField()
     is_supervisor = models.BooleanField()
     department = models.ForeignKey(Department,
-                                #    related_name="monkeys",
+                                   related_name="employees",
                                    null=True,  # Makes column nullable in DB
                                    blank=True,  # Allows blank value on objects
                                    on_delete=models.CASCADE)

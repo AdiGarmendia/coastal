@@ -4,12 +4,12 @@
 
 <section class="department-details">
 	<h1>{{ department.department_name }}</h1>
-	{% for employee in department.employees %}
-	<li>{{ employee.first_name } { employee.last_name }}</li>
+	{% for employee in department.employees.all %}
+	<li>{{ employee.first_name }} {{ employee.last_name }}</li>
 	{% endfor %}
 </section>
 <section style="display: flex">
-	<form action="{% url 'hrapp:department_list' %}" method="GET">
+	<form action="{% url 'coastalapp:department_list' %}" method="GET">
 		{% csrf_token %}
 		<button class="button">Back to Department List</button>
 	</form>
