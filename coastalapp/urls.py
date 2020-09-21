@@ -27,5 +27,7 @@ urlpatterns = [
          job_edit_form, name="job_edit_form"),
     path('vehicles/form', vehicle_form, name='vehicle_form'),
     path('vehicles/', vehicle_list, name='vehicle_list'),
-    path('vehicles/<int:vehicle_id>/', vehicle_details, name='vehicle')
+    path('vehicles/<int:vehicle_id>/', vehicle_details, name='vehicle'),
+    path('vehicles/<int:vehicle_id>/vehicle_form/',
+         vehicle_edit_form, name='vehicle_edit_form')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

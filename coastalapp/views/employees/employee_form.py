@@ -34,29 +34,4 @@ def employee_edit_form(request, employee_id):
 
         return render(request, template, context)
 
-    elif request.method == 'POST':
-        form_data = request.POST
-
-        if request.method == (
-            "actual_method" in form_data and form_data["actual_method"] == "PUT"
-        ):
-            form_data = request.PUT
-            print("suncess")
-            employee_edit = Employee.objects.get(pk=employee_id)
-            employee_edit.first_name = form_data['first_name']
-            employee_edit.last_name = form_data['last_name']
-            employee_edit.start_date = form_data['start_date']
-            employee_edit.is_supervisor = form_data['is_supervisor']
-            employee_edit.department_id = form_data['department_id']
-            # employee_edit.save()
-
-        else: 
-            print('failed')
-            return redirect("coastalapp:employee_list")
-        return redirect("coastalapp:employee_list")
-
-        #     return redirect(reverse('coastalapp:employee', args=[employee_id]))
-        # return redirect(reverse('coastalapp:employee', args=[employee_id]))
-             
-
         
