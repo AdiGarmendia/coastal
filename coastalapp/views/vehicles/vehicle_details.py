@@ -19,11 +19,7 @@ def vehicle_details(request, vehicle_id):
         if (
             "actual_method" in form_data and form_data["actual_method"] == "PUT"
         ):
-            # form_data = request.POST
-            # vehicle.make = form_data['make']
-            # vehicle.manufacturer = form_data['manufacturer']
-            # vehicle.purchase_date = form_data['purchase_date']
-            # vehicle.retired_date = form_data['retired_date']
+            
             vehicle.employee_id = form_data['employee_id']
             vehicle.save()
 

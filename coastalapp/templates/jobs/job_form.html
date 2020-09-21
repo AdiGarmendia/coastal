@@ -19,7 +19,16 @@
         <label for="end_date">End Date: </label>
         <input id="end_date" type="date" name="end_date" value={{ job.end_date }}>
     </fieldset>
-   
+    {% if job.id is not None %}
+			<fieldset>
+            <label for="assigned_employee_id">Assign: </label>
+            <select id="assigned_employee_id" type="text" name="assigned_employee_id">
+                    {% for employee in all_employees %}
+                        <option {% if employee.id == job.employee_id %}selected{% endif %} value="{{ employee.id }}">{{ employee.first_name }} {{ employee.last_name }}</option>
+                    {% endfor %}
+            </select>
+        	</fieldset>
+			{% endif %}
 
 {% if job.id is not None %}
     <input type="hidden" name="actual_method" value="PUT">
