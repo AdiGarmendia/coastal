@@ -3,11 +3,20 @@
 {% endblock css %} {% block content %}
 
 <section class="vehicle-details">
-	<h1>{{ vehicle.make }}</h1>
-	<h2>Manufacturer: {{ vehicle.manufacturer }}</h2>
-	<h2>Pruchased on: {{ vehicle.purchase_date }}</h2>
+	<h2>{{ vehicle.make }}</h2>
+	<h4>Manufacturer: {{ vehicle.manufacturer }}</h4>
+	<h4>Pruchased on: {{ vehicle.purchase_date }}</h4>
+	{% for employee in vehicle.employees.all %}
+	<h4>Assigned to:</h4>
+	<li>{{ employee.first_name }} {{ employee.last_name }}</li>
+	{% endfor %}
 </section>
+
 {% if user.is_authenticated %}
+<form action="{% url 'coastalapp:vehicle_edit_form' vehicle.id %}" method="GET">
+	{% csrf_token %}
+	<button class="button">Assign</button>
+</form>
 <form action="{% url 'coastalapp:vehicle' vehicle.id %}" method="POST">
 	{% csrf_token %}
 	<input type="hidden" name="actual_method" value="DELETE" />

@@ -5,6 +5,7 @@ from ..connection import Connection
 
 
 
+
 def department_details(request, department_id):
     if request.method == "GET":
         department = Department.objects.get(pk=department_id)

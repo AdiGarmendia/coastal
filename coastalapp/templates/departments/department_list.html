@@ -13,7 +13,7 @@
 {% endif %}
 
 <ol class="list">
-	{% for department in all_departments %}
+	{% for department in departments %}
 	<li class="card">
 		<a
 			class="details-link department-name"
@@ -22,7 +22,7 @@
 			<h3 class="deptartment-name">{{ department.department_name }}</h3>
 		</a>
 		<h5 class="department-size">
-			Employees: {% for emp in department.employee_set.all %}
+			Employees: {% for emp in department.employees.all %}
 			<h3>{{emp.first_name}}</h3>
 			{% endfor %}
 		</h5>

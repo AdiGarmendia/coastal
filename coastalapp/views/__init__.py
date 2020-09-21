@@ -1,6 +1,7 @@
 from .vehicles.vehicle_details import vehicle_details
 from .vehicles.vehicle_list import  vehicle_list
 from .vehicles.vehicle_form import vehicle_form
+from .vehicles.vehicle_form import vehicle_edit_form
 from .connection import Connection
 from .employees.employee_list import  employee_list
 from .employees.employee_form import employee_form

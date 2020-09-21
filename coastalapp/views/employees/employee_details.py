@@ -4,28 +4,6 @@ from coastalapp.models import Employee
 from ..connection import Connection
 
 
-# def get_employee(employee_id):
-#     with sqlite3.connect(Connection.db_path) as conn:
-#         conn.row_factory = sqlite3.Row
-
-#         db_cursor = conn.cursor()
-#         db_cursor.execute("""
-#         SELECT
-#             e.id,
-#             e.first_name,
-#             e.last_name,
-#             e.start_date,
-#             e.is_supervisor,
-#             e.department_id,
-#             d.id department_id,
-#             d.department_name
-#         FROM coastalapp_employee e
-#         JOIN coastalapp_department d ON e.department_id = d.id
-#         WHERE e.id = ?
-#         """, (employee_id,))
-
-#         return db_cursor.fetchone()
-
 
 
 def employee_details(request, employee_id):

@@ -23,9 +23,11 @@ urlpatterns = [
     path('jobs/<int:job_id>/',
          job_details, name='job'),
     path('jobs/job_form', job_form, name='job_form'),
-    path('jobs/<int:job_id>/form/',
-         job_edit_form, name="job_edit_form"),
+    path('jobs/<int:job_id>/job_form/',
+         job_edit_form, name='job_edit_form'),
     path('vehicles/form', vehicle_form, name='vehicle_form'),
     path('vehicles/', vehicle_list, name='vehicle_list'),
-    path('vehicles/<int:vehicle_id>/', vehicle_details, name='vehicle')
+    path('vehicles/<int:vehicle_id>/', vehicle_details, name='vehicle'),
+    path('vehicles/<int:vehicle_id>/vehicle_form/',
+         vehicle_edit_form, name='vehicle_edit_form')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
