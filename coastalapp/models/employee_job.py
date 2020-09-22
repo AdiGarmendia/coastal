@@ -7,12 +7,10 @@ class EmployeeJob(models.Model):
     
 
     employee = models.ForeignKey(Employee,
-                                 related_name="EmployeeJobs",
                                  null=True,  # Makes column nullable in DB
                                  blank=True,  # Allows blank value on objects
                                  on_delete=models.CASCADE)
     job = models.ForeignKey(Job,
-                                 related_name="EmployeesJob",
                                  null=True,  # Makes column nullable in DB
                                  blank=True,  # Allows blank value on objects
                                  on_delete=models.CASCADE)

@@ -1,6 +1,7 @@
 import sqlite3
 from django.shortcuts import render, reverse, redirect
 from coastalapp.models import Job
+from coastalapp.models import EmployeeJob
 from ..connection import Connection
 
 def job_details(request, job_id):
@@ -15,9 +16,10 @@ def job_details(request, job_id):
         if (
             "actual_method" in form_data and form_data["actual_method"] == "PUT"
         ):
-            
-            job.assigned_employee_id = form_data['assigned_employee_id']
-            job.save()
+            employeejob = EmployeeJob()
+            employeejob.employee_id = form_data['employee_id']
+            employeejob.job_id = Job.objects.get(pk=job_id).id
+            employeejob.save()
 
         elif (
             "actual_method" in form_data and form_data["actual_method"] == "DELETE"

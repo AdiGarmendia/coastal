@@ -6,10 +6,11 @@
 	<h2>{{ vehicle.make }}</h2>
 	<h4>Manufacturer: {{ vehicle.manufacturer }}</h4>
 	<h4>Pruchased on: {{ vehicle.purchase_date }}</h4>
-	{% for employee in vehicle.employees.all %}
-	<h4>Assigned to:</h4>
-	<li>{{ employee.first_name }} {{ employee.last_name }}</li>
-	{% endfor %}
+	{% if vehicle.employee %}
+	<h4>
+		Assigned to: {{vehicle.employee.first_name}} {{vehicle.employee.last_name}}
+	</h4>
+	{% endif %}
 </section>
 
 {% if user.is_authenticated %}

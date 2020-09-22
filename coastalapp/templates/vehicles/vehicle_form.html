@@ -33,6 +33,7 @@
 			</fieldset>
 			{% endif %}
 			{% if vehicle.id is not None %}
+			<input type="hidden" name="actual_method" value="PUT" />
 			<fieldset>
             <label for="employee_id">Employee: </label>
             <select id="employee_id" type="text" name="employee_id">

@@ -19,6 +19,7 @@ def vehicle_details(request, vehicle_id):
         if (
             "actual_method" in form_data and form_data["actual_method"] == "PUT"
         ):
+            print('form_data', form_data)
             
             vehicle.employee_id = form_data['employee_id']
             vehicle.save()
