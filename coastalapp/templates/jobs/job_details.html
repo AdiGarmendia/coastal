@@ -6,6 +6,13 @@
 	<h1>{{ job.title }}</h1>
 	<p>Start Date: {{ job.start_date }}</p>
 	<p>End Date: {{ job.end_date }}</p>
+	{% for job in job.employeejob_set.all %}
+	<li class="card">
+		<a class="employee-name">
+			{{job.employee.first_name}} {{job.employee.last_name}}
+		</a>
+	</li>
+	{%endfor%}
 </section>
 
 {% if user.is_authenticated %}
