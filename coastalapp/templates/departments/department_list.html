@@ -21,11 +21,13 @@
 		>
 			<h3 class="deptartment-name">{{ department.department_name }}</h3>
 		</a>
+		{% comment %}
 		<h5 class="department-size">
 			Employees: {% for emp in department.employees.all %}
 			<h3>{{emp.first_name}}</h3>
 			{% endfor %}
 		</h5>
+		{% endcomment %}
 	</li>
 	{% endfor %}
 </ol>

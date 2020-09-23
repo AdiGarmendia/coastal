@@ -11,6 +11,7 @@ class Department(models.Model):
 
     def __str__(self):
         return f"{self.department_name}"
+        
 
     # def get_absolute_url(self):
     #     return reverse("Department_detail", kwargs={"pk": self.pk})

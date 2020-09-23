@@ -27,11 +27,11 @@
 	{% endfor %}
 </ol>
 
+{% comment %}
 <section style="display: flex">
 	<form action="{% url 'coastalapp:job_past' %}" method="GET">
 		{% csrf_token %}
 		<button class="button">See Past Jobs</button>
 	</form>
 </section>
-
-{% endblock content %}
+{% endcomment %} {% endblock content %}

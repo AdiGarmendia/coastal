@@ -13,6 +13,7 @@
 	<body>
 		<nav id="site-nav">
 			<ol class="nav-list">
+				{% if perms.coastalapp.add_vehicle %}
 				<li class="nav-list__route">
 					<a href="{% url 'coastalapp:employee_list' %}">Employees</a>
 				</li>
@@ -22,10 +23,10 @@
 				<li class="nav-list__route">
 					<a href="{% url 'coastalapp:vehicle_list' %}">Vehicles</a>
 				</li>
+				{% endif %} {% if user.is_authenticated %}
 				<li class="nav-list__route">
 					<a href="{% url 'coastalapp:job_list' %}">Jobs</a>
 				</li>
-				{% if user.is_authenticated %}
 				<li class="nav-list__route logout">
 					<a href="{% url 'coastalapp:logout' %}">Logout</a>
 				</li>
