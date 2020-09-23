@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 from django.shortcuts import render, reverse, redirect
 from coastalapp.models import Job
 from coastalapp.models import EmployeeJob
@@ -19,6 +20,7 @@ def job_details(request, job_id):
             employeejob = EmployeeJob()
             employeejob.employee_id = form_data['employee_id']
             employeejob.job_id = Job.objects.get(pk=job_id).id
+            employeejob.assigned_date = datetime.now().date()
             employeejob.save()
 
         elif (

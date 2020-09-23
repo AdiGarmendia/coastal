@@ -9,17 +9,24 @@
 	{% for job in job.employeejob_set.all %}
 	<li class="card">
 		<a class="employee-name">
-			{{job.employee.first_name}} {{job.employee.last_name}}
+			{{job.employee.first_name}} {{job.employee.last_name}} Assigned:
+			{{job.assigned_date}}
 		</a>
 	</li>
 	{%endfor%}
 </section>
 
-{% if user.is_authenticated %}
+{% if perms.coastalapp.add_vehicle %}
 <form action="{% url 'coastalapp:job_edit_form' job.id %}" method="GET">
 	{% csrf_token %}
 	<button class="button">Assign</button>
 </form>
+{% comment %}
+<form action="{% url 'coastalapp:job_edit_form' job.id %}" method="PUT">
+	{% csrf_token %}
+	<button class="button">Unassign</button>
+</form>
+{% endcomment %}
 <form action="{% url 'coastalapp:job' job.id %}" method="POST">
 	{% csrf_token %}
 	<input type="hidden" name="actual_method" value="DELETE" />

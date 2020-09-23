@@ -4,7 +4,11 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from coastalapp.models import Department, Employee
 from ..connection import Connection
+from django.contrib.auth.decorators import permission_required
 
+@permission_required('auth.view_user')
+def users_list_view(request):
+    pass
 
 
 

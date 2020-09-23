@@ -23,7 +23,9 @@
 					{{ employee.first_name }} {{ employee.last_name }}
 				</h3></a
 			>
-			<h5 class="employee-department">{{ employee.department_name }}</h5>
+			<h5 class="employee-department">
+				{{ employee.department.department_name }}
+			</h5>
 		</li>
 		{% endfor %}
 	</ol>
