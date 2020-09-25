@@ -12,6 +12,8 @@
 
 	<body>
 		<nav id="site-nav">
+			{% comment %} {% load static %} <img src="{% static "" %}" alt="My image">
+			{% endcomment %}
 			<ol class="nav-list">
 				{% if perms.coastalapp.add_vehicle %}
 				<li class="nav-list__route">

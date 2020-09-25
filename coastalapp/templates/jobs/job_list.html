@@ -21,17 +21,11 @@
 			class="employee-name"
 			href="{% url 'coastalapp:job' job.id %}"
 		>
-			{{ job.title }}
+			<h3 class="job-name">{{ job.title }}</h3>
 		</a>
 	</li>
+
 	{% endfor %}
 </ol>
 
-{% comment %}
-<section style="display: flex">
-	<form action="{% url 'coastalapp:job_past' %}" method="GET">
-		{% csrf_token %}
-		<button class="button">See Past Jobs</button>
-	</form>
-</section>
-{% endcomment %} {% endblock content %}
+{% endblock content %}

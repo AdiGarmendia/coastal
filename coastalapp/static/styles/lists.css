@@ -1,14 +1,17 @@
 .list {
 	display: flex;
+	flex-wrap: wrap;
 	list-style-type: none;
 	padding-left: 0;
 }
 
 .list > li {
-	height: 250px;
+	height: 200px;
 	width: 200px;
 	box-shadow: 1px 1px 3px rgb(59, 59, 58);
 	margin: 10px;
+	border: 5px ridge #1c6ea4;
+	border-radius: 20px 20px 10px 10px;
 }
 
 .list > li:hover {
